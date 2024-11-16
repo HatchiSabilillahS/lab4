@@ -1,0 +1,11 @@
+PENJELASAN:
+1.	Fungsi hitung_nilai_akhir : pungdi ini digunakan untuk menghitung nilai akhir mahasiswa berdasarkan presentase hasil akhir:
+•	Nilai tugas: 30%
+•	Nilai UTS: 35%
+•	Nilai UAS: 35%
+Rumus perhitungannya adalah:
+  
+2.	Terjemahhan while True
+3.	Masukan Nilai
+4.	Penyimpanan data : Setiap data s data_siswa
+5.	Menapilkan data
