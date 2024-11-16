@@ -1,0 +1,47 @@
+# Fungsi untuk menghitung nilai akhir berdasarkan komponen nilai
+def hitung_nilai_akhir(nilai_tugas, nilai_uts, nilai_uas):
+    return (nilai_tugas * 0.30) + (nilai_uts * 0.35) + (nilai_uas * 0.35)
+
+# List untuk menyimpan data siswa
+data_siswa = []
+
+# Perulangan untuk memasukkan data siswa
+while True:
+    # Meminta nama siswa
+    nama = input("Masukkan nama siswa: ")
+
+    # Meminta nilai untuk komponen nilai (tugas, uts, uas)
+    try:
+        nilai_tugas = float(input(f"Masukkan nilai tugas {nama}: "))
+        nilai_uts = float(input(f"Masukkan nilai UTS {nama}: "))
+        nilai_uas = float(input(f"Masukkan nilai UAS {nama}: "))
+    except ValueError:
+        print("Input nilai tidak valid! Harap masukkan angka.")
+        continue
+
+    # Menghitung nilai akhir berdasarkan komponen
+    nilai_akhir = hitung_nilai_akhir(nilai_tugas, nilai_uts, nilai_uas)
+
+    # Menyimpan data siswa dalam bentuk dictionary
+    data_siswa.append({
+        'nama': nama,
+        'nilai_tugas': nilai_tugas,
+        'nilai_uts': nilai_uts,
+        'nilai_uas': nilai_uas,
+        'nilai_akhir': nilai_akhir
+    })
+
+    # Menanyakan apakah ingin menambah data lagi
+    tambah_data = input("Apakah Anda ingin menambah data siswa lagi? (y/t): ").lower()
+    
+    if tambah_data == 't':
+        break
+
+# Menampilkan daftar data siswa setelah input selesai
+print("\nDaftar Nilai Siswa:")
+print("=" * 60)
+print(f"{'Nama':<20}{'Tugas':<10}{'UTS':<10}{'UAS':<10}{'Nilai Akhir':<15}")
+print("=" * 60)
+
+for siswa in data_siswa:
+    print(f"{siswa['nama']:<20}{siswa['nilai_tugas']:<10}{siswa['nilai_uts']:<10}{siswa['nilai_uas']:<10}{siswa['nilai_akhir']:<15.2f}")
